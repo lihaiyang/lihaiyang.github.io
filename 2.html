@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>GESP 图形化编程二级 全真模拟卷 (20题)</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", SimSun, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 20px;
+            background-color: #eef2f5;
+            padding: 8px 15px;
+            border-left: 6px solid #2b579a;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 50px;
+            /* 防止打印时题目被截断 */
+            page-break-inside: avoid;
+        }
+        .q-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .content {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        .example-container {
+            display: flex;
+            gap: 20px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        .example-box {
+            background-color: #f9f9f9;
+            border: 1px dashed #999;
+            padding: 10px 15px;
+            font-family: Consolas, monospace;
+            font-size: 15px;
+            min-width: 150px;
+        }
+        .note {
+            font-size: 14px;
+            color: #555;
+            margin-left: 20px;
+            border-top: 1px dotted #ccc;
+            padding-top: 8px;
+            margin-top: 10px;
+        }
+        i {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            padding: 0 3px;
+        }
+        @media print {
+            body { max-width: 100%; padding: 0; background: #fff; }
+            h2 { border-left: 6px solid #000; background-color: #f0f0f0; -webkit-print-color-adjust: exact; }
+            .example-box { border: 1px solid #000; background-color: #fff; }
+            .question { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GESP 图形化编程二级 全真模拟题库（共20题）</h1>
+
+    <h2>第一部分：编程题 1 专项练习（侧重多重条件、数学公式与逻辑组合）</h2>
+
+    <!-- 第1题 -->
+    <div class="question">
+        <div class="q-title">1、小杨的打车费</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨周末要去博物馆参观。城市的出租车计价规则是这样的：如果行驶里程在 3 公里以内（包含 3 公里），无论开多远都只收起步价 10 元。如果行驶里程超过了 3 公里，那么多出来的部分，每公里需要额外收取 2 元（不足 1 公里的按 1 公里计算，也就是要向上取整）。<br>
+            例如，如果开了 4.5 公里，就会按照 5 公里来算，超过的 2 公里要收 4 元，总共 14 元。<br>
+            默认小猫角色和白色背景，编写程序，根据小杨输入的实际行驶里程 <i>s</i>，帮他计算出最终需要支付的打车费存入变量 ans 中。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“s”，表示实际行驶的里程（单位：公里，可能是小数）。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储最后算出的打车费（单位：元）。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                s = 2.5<br><br>
+                <b>输出：</b><br>
+                ans = 10
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                s = 5.1<br><br>
+                <b>输出：</b><br>
+                ans = 18
+            </div>
+        </div>
+        <div class="note">
+            【注意事项】<br>
+            1. 变量名的拼写（包括大小写）要和题目完全一致。<br>
+            2. 输入变量直接赋值即可，无需使用“询问并等待”积木块。<br>
+            3. 输出结果存放在对应变量中即可，无需使用“说…”或“说…，2 秒”积木块。
+        </div>
+    </div>
+
+    <!-- 第2题 -->
+    <div class="question">
+        <div class="q-title">2、小杨买地砖</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨的房间要重新铺设正方形的地砖。小杨测量出房间的总面积是 <i>a</i> 平方米。他在建材市场看中了一款精美的地砖，卖砖的阿姨告诉他，这一整箱地砖刚好可以铺满 <i>b</i> 平方米的面积。<br>
+            小杨必须买一整箱的地砖，不能拆开买半箱。请你帮小杨算一算，为了让整个房间都铺满地砖，他最少需要购买多少箱这种地砖？<br>
+            默认小猫角色和白色背景，编写程序完成上述计算。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">
+            新建变量“a”，表示小杨房间的总面积。<br>
+            新建变量“b”，表示一箱地砖能铺满的面积。
+        </div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储最少需要购买的地砖箱数。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                a = 20<br>
+                b = 6<br><br>
+                <b>输出：</b><br>
+                ans = 4
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第3题 -->
+    <div class="question">
+        <div class="q-title">3、谁是最高的人</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            体育课上，老师正在为校篮球队选拔队员。小杨、小明和小刚三个好朋友一起来参加选拔。老师需要知道他们三个人当中，谁的身高是最高的，并把最高的身高数值记录下来。<br>
+            已知他们三人的身高分别是 <i>a</i> 厘米、<i>b</i> 厘米和 <i>c</i> 厘米。<br>
+            默认小猫角色和白色背景，编写程序，比较这三个数字，找出其中的最大值，并将其存入结果变量中。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“a”、“b”、“c”，分别表示三个小朋友的身高数值。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“result”用于存储算出的最大身高值。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                a = 145<br>
+                b = 152<br>
+                c = 148<br><br>
+                <b>输出：</b><br>
+                result = 152
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第4题 -->
+    <div class="question">
+        <div class="q-title">4、评优规则</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            学校马上要评选“年度优秀小标兵”了！大队部规定，想要当选小标兵，必须满足以下两个条件之一：<br>
+            条件一：期末考试成绩 <i>s</i> 必须大于等于 95 分。<br>
+            条件二：期末考试成绩 <i>s</i> 达到 85 分（包含 85 分），并且参加社区志愿服务的时间 <i>v</i> 达到或超过 10 个小时。<br>
+            如果小杨满足以上任何一个条件，就能当选，输出大写字母 Y；否则，就会落选，输出大写字母 N。<br>
+            默认小猫角色和白色背景，编写程序帮小杨判断他是否能评上小标兵。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">
+            新建变量“s”，表示小杨的期末考试成绩。<br>
+            新建变量“v”，表示小杨的志愿服务时间（小时）。
+        </div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储判断结果（Y 或者是 N）。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                s = 88<br>
+                v = 12<br><br>
+                <b>输出：</b><br>
+                ans = Y
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                s = 90<br>
+                v = 5<br><br>
+                <b>输出：</b><br>
+                ans = N
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第5题 -->
+    <div class="question">
+        <div class="q-title">5、神奇的魔法数字</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            在魔法学院里，有一门非常神秘的数字课。老师告诉小杨，只要一个数字能够同时被 3 和 5 整除，但是不能被 2 整除，那么这个数字就是“神奇的魔法数字”。<br>
+            现在小杨拿到了一个未知的数字 <i>n</i>，他想知道这个数字到底是不是魔法数字。如果是，请输出 1；如果不是，请输出 0。<br>
+            默认小猫角色和白色背景，编写程序帮小杨进行魔法鉴定。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示小杨拿到的未知数字。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储鉴定结果（1 或 0）。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 15<br><br>
+                <b>输出：</b><br>
+                ans = 1
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 30<br><br>
+                <b>输出：</b><br>
+                ans = 0
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第6题 -->
+    <div class="question">
+        <div class="q-title">6、文具店的促销</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            开学季到了，学校门口的文具店推出了一项超级划算的“买二送一”大促销活动！也就是说，只要你掏钱买 2 支铅笔，老板就会免费白送你 1 支，相当于拿到 3 支铅笔。<br>
+            小杨这学期一共需要 <i>n</i> 支铅笔。如果每支铅笔的单价是 <i>p</i> 元，小杨想花最少的钱刚好拿到 <i>n</i> 支铅笔（或者多于 <i>n</i> 支也行，只要钱最少）。请问小杨最少需要付给老板多少钱？<br>
+            默认小猫角色和白色背景，编写程序帮小杨算算最省钱的金额。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">
+            新建变量“n”，表示小杨需要的铅笔总数。<br>
+            新建变量“p”，表示每支铅笔的单价（元）。
+        </div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储最少需要花费的钱数。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 8<br>
+                p = 2<br><br>
+                <b>输出：</b><br>
+                ans = 12<br>
+                <span style="font-size:12px; color:#666;">*(提示：买6送3，拿9支，花12元)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第7题 -->
+    <div class="question">
+        <div class="q-title">7、距离宝藏有多远</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨在玩寻宝游戏，地图是一条笔直的直线。小杨当前的位置在坐标点 <i>x</i>，宝藏埋藏在坐标点 <i>y</i>。小杨想知道他距离宝藏还有多远，也就是说，他需要计算 <i>x</i> 和 <i>y</i> 之间的距离差值。<br>
+            注意，不管小杨是在宝藏的左边还是右边，距离永远是一个正数或零。<br>
+            默认小猫角色和白色背景，编写程序计算小杨和宝藏之间的准确距离。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">
+            新建变量“x”，表示小杨的位置坐标。<br>
+            新建变量“y”，表示宝藏的位置坐标。
+        </div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储算出的距离。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                x = 5<br>
+                y = 12<br><br>
+                <b>输出：</b><br>
+                ans = 7
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                x = 20<br>
+                y = 8<br><br>
+                <b>输出：</b><br>
+                ans = 12
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第8题 -->
+    <div class="question">
+        <div class="q-title">8、回文数检测</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            老师给小杨讲了一个有趣的数学概念叫做“回文数”。如果一个三位数的百位数字和个位数字完全相同，那么它就被称为回文数（比如 121，353）。<br>
+            小杨随手写下了一个三位数 <i>n</i>，请你帮他检查一下这个三位数是不是回文数。如果是，输出大写字母 Y，如果不是，输出大写字母 N。<br>
+            默认小猫角色和白色背景，编写程序进行检查。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示小杨写下的三位数（题目保证一定是 100 到 999 之间的数字）。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储检查的结果（Y 或 N）。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 484<br><br>
+                <b>输出：</b><br>
+                ans = Y
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 237<br><br>
+                <b>输出：</b><br>
+                ans = N
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第9题 -->
+    <div class="question">
+        <div class="q-title">9、三角形鉴定</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            数学课上，老师发给了小杨三根长短不一的小木棍，它们的长度分别是 <i>a</i>、<i>b</i> 和 <i>c</i>。老师问小杨：“你能用这三根木棍首尾相连，拼成一个真正的三角形吗？”<br>
+            根据数学规律，只有当“任意两根木棍的长度之和都大于第三根木棍”时，才能拼成三角形。如果这三根木棍能拼成三角形，输出 1，如果拼不成，输出 0。<br>
+            默认小猫角色和白色背景，编写程序帮小杨快速鉴定。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“a”、“b”、“c”，分别表示三根木棍的长度。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“result”用于存储鉴定结果（1 或 0）。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                a = 3<br>
+                b = 4<br>
+                c = 5<br><br>
+                <b>输出：</b><br>
+                result = 1
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                a = 1<br>
+                b = 2<br>
+                c = 5<br><br>
+                <b>输出：</b><br>
+                result = 0
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第10题 -->
+    <div class="question">
+        <div class="q-title">10、智能停车场</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            商场地下停车场采用了最新的智能计费系统。规则非常严格：停车在 30 分钟以内（含 30 分钟）是免费的，不需要花钱。<br>
+            但是，一旦停车超过了 30 分钟，就会按“每半小时 5 元”来收费，而且只要超过了半小时的界限，哪怕只多停了 1 分钟，也要按一个完整的半小时来算钱。（例如：停了 35 分钟，算 1 个收费时段，收费 5 元；停了 61 分钟，算 2 个收费时段，收费 10 元）。<br>
+            小杨的爸爸在这个停车场停了 <i>m</i> 分钟的车，编写程序帮小杨计算他爸爸一共要交多少元停车费。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“m”，表示总共停车的分钟数。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储需要缴纳的停车费。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                m = 20<br><br>
+                <b>输出：</b><br>
+                ans = 0
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                m = 75<br><br>
+                <b>输出：</b><br>
+                ans = 10
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- ================= 第二部分 ================= -->
+    <h2>第二部分：编程题 2 专项练习（侧重循环、模拟、数列、数位操作）</h2>
+
+    <!-- 第11题 -->
+    <div class="question">
+        <div class="q-title">11、冰雹猜想</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨在看一本数学故事书，里面讲到了著名的“冰雹猜想”。游戏规则是这样的：随便选定一个正整数 <i>n</i>。如果 <i>n</i> 是偶数，就把它除以 2；如果 <i>n</i> 是奇数，就把它乘 3 再加 1。不断重复这个过程，不管开始的数字多大，它最终都会神奇地变成 1！<br>
+            小杨觉得太好玩了，他选定了一个起始数字 <i>n</i>，他想亲自数一数，到底需要经过多少个步骤的变换，这个数字才会最终变成 1 呢？<br>
+            默认小猫角色和白色背景，编写程序帮小杨计算出变化的步数。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示小杨选定的初始正整数（n 大于 1）。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储变化为 1 所需要的步数。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 5<br><br>
+                <b>输出：</b><br>
+                ans = 5<br>
+                <span style="font-size:12px; color:#666;">*(提示：5->16->8->4->2->1，经历5步)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第12题 -->
+    <div class="question">
+        <div class="q-title">12、细菌的繁衍实验</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            生物实验室里，小杨正在观察一种特殊的魔法细菌。最开始的时候，培养皿里有 <i>x</i> 个这种细菌。小杨发现，每经过 1 个小时，细菌的数量就会分裂翻倍变成原来的 2 倍。但是，由于培养皿的营养有限，每次翻倍之后，都会有固定的 5 个细菌自然死亡（如果翻倍后的数量不足 5 个，细菌就会全部死光，变成 0 个）。<br>
+            请问，在经过了 <i>h</i> 个小时之后，培养皿里还会剩下多少个魔法细菌？<br>
+            默认小猫角色和白色背景，编写程序模拟细菌的生长过程并算出结果。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">
+            新建变量“x”，表示最开始培养皿里的细菌数量。<br>
+            新建变量“h”，表示经过的小时数。
+        </div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储最终剩余的细菌数量。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                x = 10<br>
+                h = 3<br><br>
+                <b>输出：</b><br>
+                ans = 45<br>
+                <span style="font-size:12px; color:#666;">*(提示：1小时剩15；2小时剩25；3小时剩45)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第13题 -->
+    <div class="question">
+        <div class="q-title">13、寻找因数</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            数学老师给小杨布置了一个作业，需要找出一个正整数 <i>n</i> 所有的“因数”。如果一个数能被 <i>n</i> 刚好整除（余数为 0），那么这个数就是 <i>n</i> 的因数。<br>
+            小杨想知道，数字 <i>n</i> 到底一共有多少个不同的因数呢？（包括 1 和 <i>n</i> 本身）。<br>
+            默认小猫角色和白色背景，编写程序帮小杨统计出因数的总个数。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示需要寻找因数的正整数。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储找到的因数总个数。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 6<br><br>
+                <b>输出：</b><br>
+                ans = 4<br>
+                <span style="font-size:12px; color:#666;">*(提示：6的因数有1、2、3、6，共4个)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第14题 -->
+    <div class="question">
+        <div class="q-title">14、避开讨厌的数字</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨有一台旧款的打印机，这台打印机有一个奇怪的毛病。只要小杨让它打印从 1 到 <i>n</i> 的所有数字，它在打印时，只要碰到个位数字是 4 的数（比如 4、14、24...），它就会直接跳过不打印，直接去打印下一个数。<br>
+            小杨让打印机打印从 1 到 <i>n</i> 的数字序列。请问这台打印机最终实际成功打印了多少个数字？<br>
+            默认小猫角色和白色背景，编写程序统计实际打印出的数字个数。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示小杨设定的打印终点数字。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储实际成功打印的个数。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 15<br><br>
+                <b>输出：</b><br>
+                ans = 13<br>
+                <span style="font-size:12px; color:#666;">*(提示：跳过4和14，共打印13个)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第15题 -->
+    <div class="question">
+        <div class="q-title">15、交替存钱法</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨看了一本理财书，里面介绍了一种奇怪的“正负交替存钱法”。为了好玩，小杨决定试一试：<br>
+            第 1 天，他往存钱罐存入 1 元；<br>
+            第 2 天，他不仅没存钱，反而从存钱罐里拿走 2 元；<br>
+            第 3 天，他往存钱罐存入 3 元；<br>
+            第 4 天，他又从存钱罐里拿走 4 元……<br>
+            也就是说，奇数天存钱，偶数天拿钱。这样折腾了 <i>n</i> 天之后，小杨的存钱罐里的金额变化总计是多少元？（结果可能是负数，表示亏了）。<br>
+            默认小猫角色和白色背景，编写程序算出这 <i>n</i> 天后的净变化总额。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示总共坚持的天数。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储最终总钱数的变化值。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 4<br><br>
+                <b>输出：</b><br>
+                ans = -2<br>
+                <span style="font-size:12px; color:#666;">*(提示：1 - 2 + 3 - 4 = -2)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第16题 -->
+    <div class="question">
+        <div class="q-title">16、小猴子吃桃</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            在花果山，小猴子摘了一大堆桃子。第一天它非常贪吃，吃掉了这堆桃子的一半，觉得没过瘾，又多吃了一个。第二天它又吃了剩下桃子的一半，然后再多吃一个。以后每天它都吃掉前一天剩下的一半多一个。<br>
+            直到第 <i>d</i> 天早上，小猴子想去吃桃子的时候，发现竟然只剩下最后 1 个桃子了！<br>
+            小猴子抓了抓脑袋，怎么也想不起来它最初一共摘了多少个桃子。请你帮它算一算。<br>
+            默认小猫角色和白色背景，编写程序，根据天数 <i>d</i>，逆向推算出最初摘的桃子总数。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“d”，表示发现只剩 1 个桃子时的天数。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储最初的桃子总数。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                d = 3<br><br>
+                <b>输出：</b><br>
+                ans = 10<br>
+                <span style="font-size:12px; color:#666;">*(提示：第3天剩1，第2天(1+1)*2=4...)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第17题 -->
+    <div class="question">
+        <div class="q-title">17、拆解数字求和</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            在数字迷宫里，小杨发现了一扇石门，门上写着一个巨大的数字 <i>n</i>。石门旁边有一行提示文字：“只有算出这个大数字身上每一位数字的加和，大门才会向你敞开！”<br>
+            例如，如果大数字是 248，那么小杨需要算出的结果就是 2 + 4 + 8 = 14。<br>
+            小杨看着这个不知道有多长的大数字 <i>n</i>，决定写个程序来自动帮他算出来。<br>
+            默认小猫角色和白色背景，编写程序计算数字 <i>n</i> 的每一位数字之和。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示门上写着的数字（可能很大，比如好几万）。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储各位数字加起来的总和。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 12345<br><br>
+                <b>输出：</b><br>
+                ans = 15
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第18题 -->
+    <div class="question">
+        <div class="q-title">18、黄金树叶的规律</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨在森林里找到了一棵“黄金树”。这棵树长出新叶子的规律与众不同：<br>
+            第一个月，它只长出了 1 片金树叶。<br>
+            第二个月，它也只长出了 1 片金树叶。<br>
+            从第三个月开始，它每个月长出的金树叶数量，刚好等于前面两个月长出树叶数量的总和！<br>
+            小杨想知道，等到了第 <i>n</i> 个月的时候，这棵树当月会长出多少片金树叶呢？<br>
+            默认小猫角色和白色背景，编写程序计算第 <i>n</i> 个月的金树叶数量。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示经过的月份数（n 大于等于 1）。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储第 <i>n</i> 个月的金树叶数量。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 5<br><br>
+                <b>输出：</b><br>
+                ans = 5<br>
+                <span style="font-size:12px; color:#666;">*(提示：数列为 1,1,2,3,5,8...)*</span>
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 6<br><br>
+                <b>输出：</b><br>
+                ans = 8
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第19题 -->
+    <div class="question">
+        <div class="q-title">19、分享苹果</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨带着 <i>n</i> 个苹果去上学。课间休息时，他决定把苹果分给好朋友们。每次分苹果，小杨都会计算出当前手里苹果数量的一半（如果有小数就向下抹掉保留整数），并把这个数量的苹果送给一个朋友。<br>
+            只要算出来要送出的数量大于 0，他就送出一个朋友，并继续算剩下的苹果。如果算出来要送出的数量是 0，他就没法再送了。<br>
+            请问小杨一共给多少个朋友送过了苹果？<br>
+            默认小猫角色和白色背景，编写程序计算出分送的次数。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示小杨最初带的苹果数量。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储一共送给了多少个朋友。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 5<br><br>
+                <b>输出：</b><br>
+                ans = 3<br>
+                <span style="font-size:12px; color:#666;">*(提示：第1次送2个剩3个；第2次送1个剩2个；第3次送1个剩1个；第4次算出一半是0个，结束)*</span>
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+    <!-- 第20题 -->
+    <div class="question">
+        <div class="q-title">20、倍数大集合</div>
+        <div class="section-title">【题目描述】</div>
+        <div class="content">
+            小杨非常喜欢数字 3 和数字 5。他突发奇想，想把从 1 开始一直到数字 <i>n</i> 之间（包含 1 和 <i>n</i>），所有能被 3 整除的数，或者能被 5 整除的数，全都找出来，并且把这些找出来的数全部加在一起，求一个总和。<br>
+            比如 n=10 时，符合条件的数有：3、5、6、9、10，加起来的总和是 33。<br>
+            默认小猫角色和白色背景，编写程序帮小杨完成这个庞大的累加任务。
+        </div>
+        <div class="section-title">【输入描述】</div>
+        <div class="content">新建变量“n”，表示寻找的终点数字。</div>
+        <div class="section-title">【输出描述】</div>
+        <div class="content">新建变量“ans”用于存储最终相加得到的总和。</div>
+        <div class="section-title">【输入/输出样例】</div>
+        <div class="example-container">
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 10<br><br>
+                <b>输出：</b><br>
+                ans = 33
+            </div>
+            <div class="example-box">
+                <b>输入：</b><br>
+                n = 15<br><br>
+                <b>输出：</b><br>
+                ans = 60
+            </div>
+        </div>
+        <div class="note">【注意事项】同上。</div>
+    </div>
+
+</body>
+</html>
